@@ -1,0 +1,20 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+_warmup
+.serverless
+
+# Development
+.env
+package-lock.json
+yarn.lock
+yarn-error.log
+
+# IDE
+.idea
+.vscode
+
+# Other
+.DS_Store

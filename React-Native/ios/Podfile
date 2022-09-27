@@ -1,0 +1,72 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/passbase/zoomauthentication-cocoapods-specs.git'
+source 'https://github.com/passbase/cocoapods-specs.git'
+source 'https://github.com/passbase/microblink-cocoapods-specs.git'
+
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '12.0'
+
+$RNFirebaseAsStaticFramework = true
+$FirebaseSDKVersion = '8.10.0'
+
+# use_frameworks!
+
+# Convert all permission pods into static libraries
+pre_install do |installer|
+  installer.pod_targets.each do |pod|
+    if pod.name.eql?('RNPermissions') || pod.name.start_with?('Permission-')
+      def pod.build_type;
+      # Uncomment one line depending on your CocoaPods version
+      Pod::BuildType.static_library # >= 1.9
+      # Pod::Target::BuildType.static_library # < 1.9
+    end
+  end
+end
+end
+
+target 'kuky' do
+  config = use_native_modules!
+  inherit! :complete
+  use_react_native!(:path => config["reactNativePath"])
+  
+  # use_frameworks!
+  
+  ## Permissions
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse.podspec"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
+  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary.podspec"
+  
+  # Google maps
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+  
+  pod 'Firebase/Core'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Crashlytics'
+  pod 'React-RCTLinking', :path => '../node_modules/react-native/Libraries/LinkingIOS'
+    
+  
+  # target 'kukyTests' do
+  #   inherit! :complete
+  #   # Pods for testing
+  # end
+  
+  target 'kuky-tvOS' do
+    # Pods for hairwegorn-tvOS
+  end
+  
+  target 'kuky-tvOSTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+  
+  pre_install do |installer|
+    Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+  end
+  
+end

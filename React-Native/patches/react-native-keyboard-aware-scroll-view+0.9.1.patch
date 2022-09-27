@@ -1,0 +1,35 @@
+diff --git a/node_modules/react-native-keyboard-aware-scroll-view/lib/KeyboardAwareHOC.js b/node_modules/react-native-keyboard-aware-scroll-view/lib/KeyboardAwareHOC.js
+index 4bf0ed0..326905f 100644
+--- a/node_modules/react-native-keyboard-aware-scroll-view/lib/KeyboardAwareHOC.js
++++ b/node_modules/react-native-keyboard-aware-scroll-view/lib/KeyboardAwareHOC.js
+@@ -369,7 +369,9 @@ function KeyboardAwareHOC(
+           keyboardSpace -= _KAM_DEFAULT_TAB_BAR_HEIGHT
+         }
+         this.setState({ keyboardSpace })
+-        const currentlyFocusedField = TextInput.State.currentlyFocusedField()
++        const currentlyFocusedField = TextInput.State.currentlyFocusedInput
++          ? TextInput.State.currentlyFocusedInput()
++          : TextInput.State.currentlyFocusedField();
+         const responder = this.getScrollResponder()
+         if (!currentlyFocusedField || !responder) {
+           return
+@@ -414,7 +416,7 @@ function KeyboardAwareHOC(
+                     ) {
+                       this.scrollForExtraHeightOnAndroid(
+                         totalExtraHeight -
+-                          (keyboardPosition - textInputBottomPosition)
++                        (keyboardPosition - textInputBottomPosition)
+                       )
+                     }
+                   }
+@@ -492,7 +494,9 @@ function KeyboardAwareHOC(
+     }
+ 
+     update = () => {
+-      const currentlyFocusedField = TextInput.State.currentlyFocusedField()
++      const currentlyFocusedField = TextInput.State.currentlyFocusedInput
++        ? TextInput.State.currentlyFocusedInput()
++        : TextInput.State.currentlyFocusedField();
+       const responder = this.getScrollResponder()
+ 
+       if (!currentlyFocusedField || !responder) {

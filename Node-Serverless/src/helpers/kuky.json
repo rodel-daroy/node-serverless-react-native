@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "kuky-mobile",
+  "private_key_id": "93085d37109a4a2ed2ea4e0e800e6f8f52e208cc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDLVt9eoT+k+Gj/\ndnFB3pX8sETBfYxk9U3dtRUxkmF95cfnaDuxxXNd+4ZEq7hrXqxDEyRPIR3xnGHk\n/OZPbACCaHHRors3GVyHYF7ifrTaNAGDdLVkxsM4RvBc9RjFqhE2E9KwwuKg+NZE\nMilJwn4xBHhl9BQt+9uLjbe1ExaG/xSzxuhQdtI5/aF7aeVw26ZtrDCqcKAUKQcf\nN+WNFbUZPm3DybBPXjMY7npJVC3FEw1eyxs0rAOjuu8aKkTiERu/era7oEvbBwqg\nIg33kwprVQFR29OC4nJ6f0fdfpFJGjWAfjkcURz4tCPkV+K8c/TK0MV7eCYYw7sH\n4yhTtgCBAgMBAAECggEACEa/bb8bc5AG2gsMnhU8vp3AFq4RBlTzt+f0dmGSZUjy\ng4k7EMfMI9Gmi+n/ZiNi2JIRYsUizmBCncrrZuUq+iPdKh65BwuZuArkocxteQov\n25VnArSSYpqEkwwI15bN/4j8BOTRy6KFOh5ejtmDQGSBsAiov5xmOb5pcU3XF2R8\n1qC+LTqiy73e04DPO8pBI82s1SC2GgI9CKDWpgYL971akd/9Yl/+6WIbnn7SuJVK\nEMrYOFRAmffXAcScawfZsLaOXOI3p8B8dyHdHwF6NElnEV1zp1EkXfdhrlEeO5K8\nMg25nPua9iEXeH2NU2wuNqxYJX/0qh6N83gmb9S3DwKBgQD/cea2lGjfepYvbOS7\ngjDZnL8CJ+pNj0Jwh0Z4zCbuKLYGPEq3ZlE1VR/kcq5PZqjDY7PQc8/DCGvx9UHI\nfw8bUvTqWilf1J/g2/xd4RORR70GgmSTa3r08ltWooFV3gvTBsQ4PsxryHy4X16z\nB+zkLxmsm5AjuprPpoXzjC82dwKBgQDLx/xtn2Cfvs/zSt9ODjHJ4iu9t03SbRFK\ndEEmOpqcu7fth4nKwwKZWAfhEazOQT1DyG1shKRO+yPmlLOvPLzuFmn1s5tvUJ9I\n5ag7EKJi2UEwVgOOhWfO//urM4XXNQc1iKhUMf+7JY8H8VJDnxPjRsa1qBcEzs6/\ntjEd8LsmxwKBgFlZ8iWzS+u/6YC1Slz8cTHtTjLm22I91jOeXdwrLQLpYqJTvJ7i\nP020dO9n3ekQM8AExAUKPYYvD/MWougK6bHZFqpS114Z9cKlsGT2Me4Dde8s9RlL\n4zqC+8gWF799aA1stH4oGUEqY9XqJinhf89hWk2yLH0S7Mvtp7VFN86JAoGAJpNG\n76F58wN17gJAX1BEkIjl6tXmP20yFrwHESuK1Ryb5rT/mohr14dYhnyID8s9w7UP\nMbmyONlFpIKFuShwQ0mu6ToEtH+4h14iCHxPoRKrSnEd3z7VtdOzWmc4cNKy+KlT\n5AxK8qxbdQ9zmSVl6GIff4fAQ8K6VIQyrA5D/0UCgYAKwP+l/Fruq06Fe2TNP++6\nuF4hWMKcom+HrWrz65dk5NpspL7hTwicxEwSI2EEs90fDnUokyd+v9y6JBLu+ruc\n2g7+No2HRJenU2KNhpEtfSDBsDG2wh50SAt/6rjBmQK7ausmE+bx9IMAZJZwQ/DE\nZpQ9u739j9iH2gXTL1ccDg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "serverlessapis@kuky-mobile.iam.gserviceaccount.com",
+  "client_id": "118332064366662472278",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/serverlessapis%40kuky-mobile.iam.gserviceaccount.com"
+}

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "kukydevH2D",
+    "password": "d4$s98h22Ege8)*",
+    "database": "kuky-dev",
+    "host": "db.kuky.com",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "kukyprodU1s",
+    "password": "aS873hg1(3%",
+    "database": "kuky-prod",
+    "host": "db.kuky.com",
+    "dialect": "mysql"
+  }
+}

@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!-- <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+
+    <!-- Parent theme is changed to MaterialComponents to use Stripe CardForm component @TODO check if any impact on other UI-->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    </style>
+
+</resources>

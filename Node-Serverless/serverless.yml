@@ -1,0 +1,265 @@
+service: kukyapi # New service name for api.kuky.com
+provider:
+  name: aws
+  region: ap-southeast-2
+  runtime: nodejs12.x
+  stage: ${opt:stage,'dev'}
+  timeout: 900
+  environment:
+    MYSQL_HOST: ${self:custom.mysqlHost.${self:provider.stage}}
+    MYSQL_USER: ${self:custom.mysqlUser.${self:provider.stage}}
+    MYSQL_PASSWORD: ${self:custom.mysqlPassword.${self:provider.stage}}
+    MYSQL_DATABASE: ${self:custom.mysqlDatabase.${self:provider.stage}}
+    MYSQL_PORT: ${self:custom.mysqlPort.${self:provider.stage}}
+    ES_USER: ${self:custom.esUser.${self:provider.stage}}
+    ES_PASS: ${self:custom.esPass.${self:provider.stage}}
+    ES_URL: ${self:custom.esUrl.${self:provider.stage}}
+    ES_ENTRY_USER: ${self:custom.esEntryUser.${self:provider.stage}}
+    ES_ENTRY_POST: ${self:custom.esEntryPost.${self:provider.stage}}
+    MEDIA_ENDPOINT_REGION: ${self:custom.mediaEndpointRegion.${self:provider.stage}}
+    MEDIA_ENDPOINT: ${self:custom.mediaEndpoint.${self:provider.stage}}
+    API_SWAGGER_PATH: ${self:custom.apiSwaggerPath.${self:provider.stage}}
+    API_DEBUG: ${self:custom.apiDebug.${self:provider.stage}}
+    API_HOST: ${self:custom.apiHost.${self:provider.stage}}
+    API_SCHEMES: ${self:custom.apiSchemes.${self:provider.stage}}
+    GOOGLE_API_KEY: ${self:custom.googleApiKey.${self:provider.stage}}
+    KUKY_COIN_ADMIN: ${self:custom.kukyCoinAdmin.${self:provider.stage}}
+    KUKY_COIN_HOST: ${self:custom.kukyCoinHost.${self:provider.stage}}
+    KUKY_COIN_PORT: ${self:custom.kukyCoinPort.${self:provider.stage}}
+    KUKY_COIN_USERNAME: ${self:custom.kukyCoinUsername.${self:provider.stage}}
+    KUKY_COIN_PASSWORD: ${self:custom.kukyCoinPassword.${self:provider.stage}}
+    STRIPE_SECRET_KEY: ${self:custom.stripeSecretKey.${self:provider.stage}}
+    FIREBASE_API_KEY: ${self:custom.firebaseApiKey.${self:provider.stage}}
+    FIREBASE_SENDER_ID: ${self:custom.firebaseSenderId.${self:provider.stage}}
+    FIREBASE_ADMIN_KEY: ${self:custom.firebaseAdminKey.${self:provider.stage}}
+    PASSBASE_SECRET_API_KEY: ${self:custom.passbaseSecretApiKey.${self:provider.stage}}
+    LITECOIN_API_URL: ${self:custom.litecoinApiUrl.${self:provider.stage}}
+    CRYPTO_KEY: 'btwryzu8muisxddf7q9q5t1zhpyte1l8'
+    CRYPTO_IV: 'ix8he6y08bs01h3b'
+plugins:
+  - serverless-offline
+  - serverless-prune-plugin
+  - serverless-plugin-warmup
+custom:
+  prune:
+    automatic: true
+    number: 5
+  serverless-offline:
+    port: 4000 # host: '0.0.0.0'
+  stages:
+    - local
+    - dev
+    - prod
+  warmup:
+    enabled: true # Whether to warm up functions by default or not
+    folderName: '_warmup' # Name of the folder created for the generated warmup
+    cleanFolder: false
+    memorySize: 1024
+    vpc: false
+    events:
+      - schedule: 'cron(0/5 8-17 ? * * *)' # Run WarmUp every 5 minutes Mon-Fri between 8:00am and 5:55pm (UTC)
+    package:
+      individually: true
+      exclude: # exclude additional binaries that are included at the serverless package level
+        - ../**
+        - ../../**
+      include:
+        - ./**
+    timeout: 20
+    prewarm: true # Run WarmUp immediately after a deploymentlambda
+    concurrency: 5 # Warm up 5 concurrent instances
+  mediaEndpoint:
+    local: 'media.kuky.com'
+    dev: 'media.kuky.com'
+    prod: 'media.kuky.com'
+  mediaEndpointRegion:
+    local: 'ap-southeast-2'
+    dev: 'ap-southeast-2'
+    prod: 'ap-southeast-2'
+
+# function are here
+functions:
+  specs_page:
+    handler: src/front/specs.get
+    events:
+      - http:
+          path: /docs
+          method: get
+  swagger_page:
+    handler: src/front/swagger.get
+    events:
+      - http:
+          path: /swagger
+          method: get
+  admin_specs_page:
+    handler: src/front/admin_specs.get
+    events:
+      - http:
+          path: /admin/docs
+          method: get
+  admin_swagger_page:
+    handler: src/front/admin_swagger.get
+    events:
+      - http:
+          path: /admin/swagger
+          method: get
+  api_object_post:
+    handler: src/api/object.post
+    events:
+      - http:
+          path: /{object}
+          method: post
+          cors: true
+  api_object_detail_post:
+    handler: src/api/object_detail.post
+    events:
+      - http:
+          path: /{object}/{id}
+          method: post
+          cors: true
+  api_object_attribute_post:
+    handler: src/api/object_attribute.post
+    events:
+      - http:
+          path: /{object}/{id}/{attribute}
+          method: post
+          cors: true
+  api_object_get:
+    handler: src/api/object.get
+    events:
+      - http:
+          path: /{object}
+          method: get
+          cors: true
+  api_object_detail_get:
+    handler: src/api/object_detail.get
+    events:
+      - http:
+          path: /{object}/{id}
+          method: get
+          cors: true
+  api_object_put:
+    handler: src/api/object.put
+    events:
+      - http:
+          path: /{object}
+          method: put
+          cors: true
+  api_object_detail_put:
+    handler: src/api/object_detail.put
+    events:
+      - http:
+          path: /{object}/{id}
+          method: put
+          cors: true
+  api_object_detail_delete:
+    handler: src/api/object_detail.delete
+    events:
+      - http:
+          path: /{object}/{id}
+          method: delete
+          cors: true
+  api_object_attribute_get:
+    handler: src/api/object_attribute.get
+    events:
+      - http:
+          path: /{object}/{id}/{attribute}
+          method: get
+          cors: true
+  api_object_attribute_put:
+    handler: src/api/object_attribute.put
+    events:
+      - http:
+          path: /{object}/{id}/{attribute}
+          method: put
+          cors: true
+  api_object_patch:
+    handler: src/api/object.patch
+    events:
+      - http:
+          path: /{object}
+          method: patch
+          cors: true
+  api_object_delete:
+    handler: src/api/object.delete
+    events:
+      - http:
+          path: /{object}
+          method: delete
+          cors: true
+  api_object_attribute_delete:
+    handler: src/api/object_attribute.delete
+    events:
+      - http:
+          path: /{object}/{id}/{attribute}
+          method: delete
+          cors: true
+  admin_object_post:
+    handler: src/admin/object.post
+    events:
+      - http:
+          path: admin/{object}
+          method: post
+          cors: true
+  admin_object_put:
+    handler: src/admin/object.put
+    events:
+      - http:
+          path: admin/{object}
+          method: put
+          cors: true
+  admin_object_detail_post:
+    handler: src/admin/object_detail.post
+    events:
+      - http:
+          path: admin/{object}/{id}
+          method: post
+          cors: true
+  admin_object_attribute_post:
+    handler: src/admin/object_attribute.post
+    events:
+      - http:
+          path: admin/{object}/{id}/{attribute}
+          method: post
+          cors: true
+  admin_object_get:
+    handler: src/admin/object.get
+    events:
+      - http:
+          path: admin/{object}
+          method: get
+          cors: true
+  admin_object_detail_get:
+    handler: src/admin/object_detail.get
+    events:
+      - http:
+          path: admin/{object}/{id}
+          method: get
+          cors: true
+  admin_object_detail_put:
+    handler: src/admin/object_detail.put
+    events:
+      - http:
+          path: admin/{object}/{id}
+          method: put
+          cors: true
+  admin_object_detail_delete:
+    handler: src/admin/object_detail.delete
+    events:
+      - http:
+          path: admin/{object}/{id}
+          method: delete
+          cors: true
+  cronjob:
+    handler: src/admin/object.cronjob
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - 'rekognition:DetectLabels'
+        Resource: '*'
+    events:
+      - schedule: rate(12 hours)
+  cronjob1:
+    handler: src/admin/object.cronjob1
+    events:
+      - schedule: rate(10 minutes)

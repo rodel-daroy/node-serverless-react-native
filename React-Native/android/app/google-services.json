@@ -1,0 +1,101 @@
+{
+  "project_info": {
+    "project_number": "670547097156",
+    "firebase_url": "https://kuky-mobile.firebaseio.com",
+    "project_id": "kuky-mobile",
+    "storage_bucket": "kuky-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670547097156:android:335683a1e6ad26b6",
+        "android_client_info": {
+          "package_name": "com.kuky.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670547097156-fi26d8m1a8drr56n4lgh2c97usr3qej2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kuky.mobile",
+            "certificate_hash": "574763e5af073ef91204abe65f12283dd5f190aa"
+          }
+        },
+        {
+          "client_id": "670547097156-iv0r8misubrn903a850dblh98o0fp2tb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG24KGBfZpFrbcNZiRLzC1pDMjE2py1Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670547097156-iv0r8misubrn903a850dblh98o0fp2tb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "670547097156-ogpoun97rcc4niuguptilkol789gqk5d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kuky.mobile",
+                "app_store_id": "1458596774"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670547097156:android:fd134950a94c860b",
+        "android_client_info": {
+          "package_name": "com.kukymobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670547097156-ocqehao9hh0slk64n34ra494s9lvfjnp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kukymobile",
+            "certificate_hash": "574763e5af073ef91204abe65f12283dd5f190aa"
+          }
+        },
+        {
+          "client_id": "670547097156-iv0r8misubrn903a850dblh98o0fp2tb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG24KGBfZpFrbcNZiRLzC1pDMjE2py1Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670547097156-iv0r8misubrn903a850dblh98o0fp2tb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "670547097156-ogpoun97rcc4niuguptilkol789gqk5d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kuky.mobile",
+                "app_store_id": "1458596774"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
